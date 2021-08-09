@@ -5,33 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat 2021</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <!-- animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="/main.css" />
   </head>
   <body>
-    <h1>Chat</h1>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-md-4 my-auto">
+          <form id="noteForm" class="card card-body rounded-0">
+            <h1 class="h3 mb-5">Add a Note</h1>
+            <input
+              id="title"
+              type="text"
+              name="message"
+              placeholder="Escribe tu titulo"
+              class="form-control rounded-0 mb-3"
+              autofocus
+            />
 
-    <form id="noteForm">
-      <input
-        id="title"
-        type="text"
-        name="message"
-        placeholder="Escribe tu titulo"
-        autofocus
-      />
-
-      <textarea
-        name="description"
-        id="description"
-        rows="2"
-        placeholder="Describe your day"
-      ></textarea>
-      <button>Send</button>
-    </form>
-
-    <ul id="notes"></ul>
+            <textarea
+              name="description"
+              id="description"
+              rows="2"
+              placeholder="Describe your day"
+              class="form-control rounded-0 mb-3"
+            ></textarea>
+            <button class="btn btn-dark rounded-0">Send</button>
+          </form>
+        </div>
+        <div class="col-md-8 py-3" id="notes">
+        </div>
+      </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
-		<script src="./ui.js"></script>
-		<script src="/sockets.js"></script>
+    <script src="./ui.js"></script>
+    <script src="/sockets.js"></script>
     <script src="/main.js"></script>
   </body>
 </html>

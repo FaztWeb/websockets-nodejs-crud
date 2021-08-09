@@ -1,14 +1,18 @@
 const noteForm = document.querySelector("#noteForm");
+const title = document.querySelector("#title");
+const description = document.querySelector("#description");
 
 noteForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const title = noteForm["title"].value;
-  const description = noteForm["description"].value;
+  if (savedId) {
+    updateNote(savedId, title.value, description.value);
+  } else {
+    saveNote(title.value, description.value);
+  }
 
-	saveTask(title, description)
+  title.value = "";
+  description.value = "";
 
-  const message = document.querySelector("#title");
-  message.value = "";
-  message.focus();
+  title.focus();
 });
